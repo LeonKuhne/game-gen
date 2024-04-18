@@ -32,7 +32,7 @@ function setup() {
   )
 
   // start
-  new Game(config, new AI(config, new Bot())).start()
+  new Game(config, new AI(config, new Bot(config))).start()
 }
 
 

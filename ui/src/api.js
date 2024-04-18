@@ -4,11 +4,16 @@ export default class API {
   }
 
   async get(url) {
-    return fetch(this.base + url).then(res => res.json())
+    return await fetch(`${this.base}${url}`).then(res => res.json())
   }
 
   async getAnswer(prompt) {
-    return this.get(`/answer?prompt=${prompt}`)
+    const response = await this.get(`/answer?prompt=${prompt}`)
+    return response['answer']
   }
 
+  async getAnswerYN(prompt) {
+    const response = await this.get(`/answerYN?prompt=${prompt}`)
+    return response['answer']
+  }
 }
